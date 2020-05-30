@@ -17,6 +17,9 @@ int main(int argc, char* argv[]) {
 	initObject();
 
 	
+
+
+	
 	for (int i = 0; i < HEIGHT/64 + 1; i++) {
 		createObject(textures[0], WIDTH-64, i * 64, "Floor", 1, 1, 0, COLLIDE);
 		createObject(textures[0], 0, i * 64, "Floor", 1, 1, 0, COLLIDE);
