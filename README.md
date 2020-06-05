@@ -7,6 +7,7 @@ Repository for my in progress SDL game engine
 - Unlimited object count 
 - Primitive physics engine 
 - Primitive collision detection + movement 
+- Linux and windows support
 
 Feel free to take my code, but please just credit me 
 
