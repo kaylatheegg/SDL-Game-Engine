@@ -7,3 +7,5 @@ libs/SDL2/SDL2.dll
 Makefile
 
 a.exe
+
+*.exe
