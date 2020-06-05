@@ -31,7 +31,7 @@ LCFLAGS = -lm -lSDL2 -lSDL2_image -Werror
 
 
 #WCFLAGS are our compile time flags for windows
-WCFLAGS = -lmingw32 -lm -lSDL2main -lSDL2 -lSDL2_image -Werror 
+WCFLAGS = -lmingw32 -lm -I/usr/include/SDL2  -lSDL2main -lSDL2 -lSDL2_image -Werror 
 
 a.out : $(CSRC)
 	$(LCC) $(CSRC) $(LCFLAGS)
