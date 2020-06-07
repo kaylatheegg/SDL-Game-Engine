@@ -24,5 +24,6 @@ int initRender() {
 		return 1;
 	}
 	createTextures();
+	createFonts();
 	return 0;
 }

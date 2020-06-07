@@ -11,3 +11,5 @@ int textureCount;
 char** textureLocations;
 
 SDL_Texture** textures;
+
+int createTexture(char* textureName, SDL_Texture* texture);

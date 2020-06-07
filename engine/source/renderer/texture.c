@@ -32,8 +32,8 @@ int printTextures() {
 }
 
 int createTextures() {
-	loadTexture("engine/images/default.png");
-	loadTexture("engine/images/brick.png");
+	loadTexture("engine/res/images/default.png");
+	loadTexture("engine/res/images/brick.png");
 	
 
 	for (int i = 0; i < textureCount; i++) {
@@ -50,6 +50,14 @@ int createTextures() {
 		}
 	}
 }  
+
+int createTexture(char* textureName, SDL_Texture* texture) {
+	loadTexture(textureName);
+	textureCount++;
+	textures = realloc(textures, sizeof(SDL_Texture*) * textureCount);
+	textures[textureCount] = texture;
+}
+
 
 
 
