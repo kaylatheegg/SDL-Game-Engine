@@ -27,8 +27,9 @@ this is an array of char*
 
 int printTextures() {
 	for (int i = 0; i < textureCount; i++) {
-		printf("texture:%s\n", textureLocations[i]);
+		printf("texture: %s\n", textureLocations[i]);
 	}
+	printf("texture count: %d\n", textureCount);
 }
 
 int createTextures() {
@@ -53,14 +54,13 @@ int createTextures() {
 
 int createTexture(char* textureName, SDL_Texture* texture) {
 	loadTexture(textureName);
-	textureCount++;
-	textures = realloc(textures, sizeof(SDL_Texture*) * textureCount);
+	textures = realloc(textures, sizeof(SDL_Texture*) * (textureCount + 1));
 	textures[textureCount] = texture;
 }
 
+//sdl_texture*[a] a = sdl_texture* a
 
-
-
+//sdl_texture**  = sdl_texture*
 
 
 int loadTexture(char *textureName) {
@@ -83,7 +83,16 @@ int loadTexture(char *textureName) {
 int cleanTexture() {
 	for (int i = 0; i < textureCount; i++) {
 		free(textureLocations[i]);
-		SDL_DestroyTexture(textures[i]);
+		//printf("addr of texture: %p\n", &textures[i]);
+		//SDL_DestroyTexture(textures[i]);
+		//printf("%d\n", i);
+		/* unfortunately, there is a bug with sdl 2.0 that stops this from working when it comes to text objects, 
+		and because they are all variable it is easier to disable the clearing than testing if they are objects. 
+		this does cause a memory leak inside of the engine. this should be SMALL but if the engine ever gets a
+		large texture library, we may need to find a workaround that prevents the crash. */
+		//just for future kayla, this HAS been tested
+		/* i first tested the index, and it crashes on any text objects being removed.
+		then, i tested the addresses of the texture and they go up by 0x8 */
 	}
 	free(textureLocations);
 	free(textures);

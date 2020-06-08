@@ -14,12 +14,22 @@ int render() {
 			if (objects[i]->angle != 0) {
 				if (SDL_RenderCopyEx(renderer, objects[i]->texture, NULL, objects[i]->rect, objects[i]->angle, NULL, SDL_FLIP_NONE) != 0) {
 					printf("SDL texture rendering failure, error: %s\n", SDL_GetError());
-					return 1;
+					printf("trying to render with default texture\n");
+					if (SDL_RenderCopyEx(renderer, textures[0], NULL, objects[i]->rect, objects[i]->angle, NULL, SDL_FLIP_NONE) != 0) {
+						printf("SDL texture rendering failure, error: %s\n", SDL_GetError());
+						printf("failed to render with default texture, something has gone TERRIBLY WRONG!!\n");
+						return 1;
+					}
 				}
 			} else {
 				if (SDL_RenderCopy(renderer, objects[i]->texture, NULL, objects[i]->rect) != 0) {
 					printf("SDL texture rendering failure, error: %s\n", SDL_GetError());
-					return 1;
+					printf("trying to render with default texture\n");
+					/*if (SDL_RenderCopy(renderer, textures[0], NULL, objects[i]->rect) != 0) {
+						printf("SDL texture rendering failure, error: %s\n", SDL_GetError());
+						printf("failed to render with default texture, something has gone TERRIBLY WRONG!!\n");
+						return 1;
+					}*/
 				}
 			}
 		}

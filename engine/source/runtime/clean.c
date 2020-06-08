@@ -5,5 +5,7 @@
 #include "../../include/engine.h"
 
 int cleanupEngine() {
+	cleanObjects();
+	cleanFonts();
 	cleanTexture();
 }

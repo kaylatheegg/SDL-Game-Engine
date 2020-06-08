@@ -18,7 +18,8 @@ engine/source/level/level.c
 PLAYER = engine/source/player/init.c \
 engine/source/player/player.c 
 
-TEXT = engine/source/text/init.c
+TEXT = engine/source/text/init.c \
+engine/source/text/text.c
 
 CSRC = $(RENDER) $(OBJECT) $(RUNTIME) $(LEVEL) $(PLAYER) $(TEXT)
 

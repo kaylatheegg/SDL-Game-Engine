@@ -23,6 +23,8 @@
 	bool collide;
 	SDL_Rect *collider;*/
 
+
+
 object* createObject(SDL_Texture* tx, int x, int y, char* name, float scale, bool render, int angle, int collisionType) {
 	if (objectCount > 0) {
 		objects = realloc(objects, sizeof(object*) * (objectCount + 1));
@@ -72,9 +74,10 @@ int processPosition() {
 } cObject;*/
 
 
-int cleanObject() {
+int cleanObjects() {
 	for (int i = 0; i < objectCount; i++) {
 		free(objects[i]->rect);
+		free(objects[i]->name);
 		free(objects[i]);
 	}
 	free(objects);

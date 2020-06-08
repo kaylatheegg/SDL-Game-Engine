@@ -29,7 +29,7 @@ typedef struct {
 	int angle;
 } cObject;
 
-int cleanObject();
+int cleanObjects();
 
 enum cTypes {
 	NO_COLLIDE,

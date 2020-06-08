@@ -12,7 +12,7 @@ int initRender() {
 		printf("SDL Init failure, error: %s\n", SDL_GetError());
 		return 1;
 	}
-	window = SDL_CreateWindow("Image Loading", 100, 100, WIDTH, HEIGHT, 0);
+	window = SDL_CreateWindow("SDL Game Engine", 100, 100, WIDTH, HEIGHT, 0);
 	if (window == NULL) {
 		printf("SDL window creation, error: %s\n", SDL_GetError());
 		return 1;

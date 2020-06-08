@@ -17,7 +17,10 @@ int main(int argc, char* argv[]) {
 
 	
 
-
+	createTextObject(fonts[0], "poopy", 100, 100);
+	createTextObject(fonts[0], "poopy1", 200, 100);
+	createTextObject(fonts[0], "poopy2", 300, 100);
+	printTextures();
 
 	while (loop) {
 		
@@ -40,8 +43,10 @@ int main(int argc, char* argv[]) {
 	}
 
 
-	cleanupEngine();
+	cleanupEngine();	
+	TTF_Quit();
 	SDL_Quit();
+
 
 	return 0;
 }
