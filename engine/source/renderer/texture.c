@@ -1,10 +1,3 @@
-#include <stdio.h>
-
-
-#include <stdlib.h>
-#include <string.h>
-
-#include "../../include/config.h"
 #include "../../include/engine.h"
 
 int textureCount = 0;
@@ -45,9 +38,11 @@ int createTextures() {
 		}
 		textures[i] = IMG_LoadTexture(renderer, textureLocations[i]);
 		if (textures[i] == NULL) {
-			printf("creation of texture \"%s\" failed, error: \"%s\"\n", textureLocations[i], IMG_GetError());
-			printf("replacing texture \"%s\" with default texture\n", textureLocations[i]);
+			char error[256];
+			sprintf(error, "creation of texture \"%s\" failed, error: \"%s\"", textureLocations[i], IMG_GetError());
+			sprintf(error, "replacing texture \"%s\" with default texture", textureLocations[i]);
 			textures[i] = IMG_LoadTexture(renderer, textureLocations[0]);
+			logtofile(error, SVR);
 		}
 	}
 }  

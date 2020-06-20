@@ -21,12 +21,16 @@ engine/source/player/player.c
 TEXT = engine/source/text/init.c \
 engine/source/text/text.c
 
-CSRC = $(RENDER) $(OBJECT) $(RUNTIME) $(LEVEL) $(PLAYER) $(TEXT)
+LOG = engine/source/log/log.c \
+engine/source/log/init.c
+
+CSRC = $(RENDER) $(OBJECT) $(RUNTIME) $(LEVEL) $(PLAYER) $(TEXT) $(LOG)
 
 
 #LCC is our linux compiler
 LCC = gcc
 
+#WCC is our windows compiler
 WCC = x86_64-w64-mingw32-gcc-win32
 
 #LCFLAGS are our compile time flags for linux

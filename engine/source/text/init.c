@@ -1,7 +1,3 @@
-#include <stdio.h>
-
-
-#include "../../include/config.h"
 #include "../../include/engine.h"
 
 int fontCount = 0;
@@ -24,14 +20,17 @@ int createFonts() {
 		}
 		fonts[i] = TTF_OpenFont(fontLocations[i], 25);
 		if (fonts[i] == NULL) {
-			printf("creation of font \"%s\" failed, error: \"%s\"\n", fontLocations[i], TTF_GetError());
-			printf("no backup font detected, so if any text is drawn, it will crash the engine!\n");
+			char error[256];
+			sprintf(error, "creation of font \"%s\" failed, error: \"%s\"", fontLocations[i], TTF_GetError());
+			logtofile(error, ERR);
+			sprintf(error, "no backup font detected, so if any text is drawn, it will crash the engine!");
+			logtofile(error, ERR);
 		}
 	}
 }
 
 int loadFonts(char* fontName) {
-		if (fontCount == 0) {
+	if (fontCount == 0) {
 		fontLocations = malloc(sizeof(char*));
 		fontLocations[0] = malloc(strlen(fontName) + 1);
 		strcpy(fontLocations[0], fontName);

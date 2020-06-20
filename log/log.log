@@ -1,0 +1,15 @@
+2:47:7 [INFO] Current day is: 20/5/2020
+2:47:7 [INFO] Starting Roguelike Version 0.1
+2:47:7 [INFO] Initialising SDL
+2:47:8 [INFO] Initialising window
+2:47:8 [INFO] Initialising renderer
+2:47:8 [INFO] Initialising textures
+2:47:8 [INFO] Initialising fonts
+2:47:8 [INFO] Initialising objects
+2:47:9 [INFO] Destroying objects
+2:47:9 [INFO] Destroying fonts
+2:47:9 [INFO] Destroying textures
+2:47:9 [INFO] Destroying renderer
+2:47:9 [INFO] Destroying window
+2:47:9 [INFO] Closing TTF
+2:47:9 [INFO] Closing SDL, have a wonderful day!

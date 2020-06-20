@@ -1,6 +1,3 @@
-#include <stdio.h>
-
-#include "../../include/config.h"
 #include "../../include/engine.h"
 
 object** objects;
@@ -21,6 +18,7 @@ static size_t rectSize;
 objSize = 106*/
 
 void initObject() {
+	logtofile("Initialising objects", INF);
 	objects = malloc(sizeof(object*));
 }
 

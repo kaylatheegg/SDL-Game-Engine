@@ -1,29 +1,35 @@
-#include <stdio.h>
-
-
-#include "../../include/config.h"
 #include "../../include/engine.h"
 
 SDL_Window* window;
 SDL_Renderer* renderer;
 
 int initRender() {
+	char error[256];
+	logtofile("Initialising SDL", INF);
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
-		printf("SDL Init failure, error: %s\n", SDL_GetError());
-		return 1;
-	}
-	window = SDL_CreateWindow("SDL Game Engine", 100, 100, WIDTH, HEIGHT, 0);
-	if (window == NULL) {
-		printf("SDL window creation, error: %s\n", SDL_GetError());
+		sprintf(error, "SDL Init failure, error: %s", SDL_GetError());
+		logtofile(error, SVR);
 		return 1;
 	}
 
+	logtofile("Initialising window", INF);
+	window = SDL_CreateWindow("SDL Game Engine", 100, 100, WIDTH, HEIGHT, 0);
+	if (window == NULL) {
+		sprintf(error, "SDL window creation, error: %s", SDL_GetError());
+		logtofile(error, SVR);
+		return 1;
+	}
+
+	logtofile("Initialising renderer", INF);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if (renderer == NULL) {
-		printf("SDL renderer creation, error: %s\n", SDL_GetError());
+		sprintf(error, "SDL renderer creation, error: %s", SDL_GetError());
+		logtofile(error, SVR);
 		return 1;
 	}
 	createTextures();
+	logtofile("Initialising textures", INF);
 	createFonts();
+	logtofile("Initialising fonts", INF);
 	return 0;
 }
