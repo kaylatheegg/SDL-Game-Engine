@@ -1,3 +1,10 @@
+# ignore this, i stopped working on this months ago
+
+# go to https://github.com/kaylatheegg/c-game-engine
+
+https://github.com/kaylatheegg/c-game-engine
+
+
 # SDL-Game-Engine
 
 Repository for my in progress SDL game engine
